@@ -33,15 +33,12 @@
 body {
 
 }
-.podpanel {
-    
-}
-.podpanel h1 {
+h1 {
     text-align: center;
-    color: #8C7558;
 }
+
 .wrap {
-    width:960px;
+    max-width:800px;
     margin:0 auto;
     display:block;
     padding:15px;

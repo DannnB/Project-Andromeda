@@ -1,0 +1,39 @@
+{
+	"datesArrayMarch": [{}],
+	"datesArrayApril": [{}],
+   "datesArrayMay": [{
+     "DATE": "09/05/2017",
+     "CAMP": true,
+     "CAMPAVFOR": "14",
+     "GP1": true,
+     "GP1AVFOR": "7",
+     "GP2": true,
+     "GP2AVFOR": "3",
+     "GP3": false,
+     "GP3AVFOR": "0",
+     "GP4": true,
+     "GP4AVFOR": "13",
+     "GP5": true,
+     "GP5AVFOR": "7",
+     "EVENT": true,
+     "EVENTNAME": "Danfest",
+     "EVENTURL": "http://www.danfest.com"
+   }, {
+     "DATE": "26/05/2017",
+     "CAMP": false,
+     "CAMPAVFOR": 14,
+     "GP1": false,
+     "GP1AVFOR": "0",
+     "GP2": true,
+     "GP2AVFOR": "3",
+     "GP3": false,
+     "GP3AVFOR": "0",
+     "GP4": true,
+     "GP4AVFOR": "13",
+     "GP5": true,
+     "GP5AVFOR": "7",
+     "EVENT": true,
+     "EVENTNAME": "Danfest",
+     "EVENTURL": "http://www.danfest.com"
+   }]
+ }
