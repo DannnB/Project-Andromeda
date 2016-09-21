@@ -1,0 +1,38 @@
+.console-line {
+  font-family: monospace;
+  margin: 2px;
+  width: 100%;
+}
+
+.makeItPretty {
+  float: left;
+}
+
+.howManyDays {
+  width: 100px;
+  font-size: 4em;
+  height: 100px;
+}
+
+.holder {
+  float: none;
+  width: 100%;
+  clear: both;
+  background: #ccc;
+}
+.myClass { background: #F00 }
+
+.event a {
+    background-color: red !important;
+    background-image :none !important;
+    color: #ffffff !important;
+}]
+
+
+/* NEW STUFF */
+
+#panel4glamp {
+    width:500px;
+    height:50%;
+    background: red;
+}

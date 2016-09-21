@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                defaultDate: +3
+            });
+            $("#datepicker").on("change", function () {
+                var selected = $(this).val;
+
+                function woo(selectedText) {
+                    // Getter
+                    var appendText = $("#datepicker").datepicker("option", "appendText");
+
+                    // Setter
+                    $("#datepicker").datepicker("option", "appendText", selectedText);
+                };
+                woo(selected);
+            })
+            console.log("working!");
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <p>Date:
+        <input type="text" id="datepicker">
+    </p>
+
+
+</body>
+
+</html>
