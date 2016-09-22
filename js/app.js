@@ -19,8 +19,33 @@ $(window).load(function () {
     function bookingApp() {
         // if this dosen't pop up they we broke it somewhere out of this function most likely 
         console.log("Booking App func Started, don't let your dreams be dreams!");
+        var userDate = "Please pick a date!"; // get user date, string for testing
+        // get seleted date
+        $("#arr_date").datepicker({
+            inline: true, 
+            showOtherMonths: true,
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            onSelect: function(date){
+                //console.log(date);
+                userDate = date;
+                getDataJSON(userDate);
+                return userDate = date;
+            }
+        , });
+
+        $("somethingtogetdate if needed").click(function () {
+            var first, second;
+            first = $(".datepicker[name=datepicker1]").val();
+            second = $(".datepicker[name=datepicker2]").val();
+            alert(first + " , " + second);
+            first = $(".datepicker[name=datepicker1]").datepicker('getDate');
+            second = $(".datepicker[name=datepicker2]").datepicker('getDate');
+            alert(first + " , " + second);
+        });
+
+
         // get json
-        var userDate = "09/05/2017"; // get user date, string for testing
         $("#giveMeData").click(function () {
             // onSelected methord will run this fuction
             getDataJSON(userDate);
@@ -28,7 +53,8 @@ $(window).load(function () {
 
         function setSelectedDate(getUserDate, getMaxDays) {
             $("#arr-date-set").text("Arriving on the " + getUserDate);
-            $("#your-max-days").text("You can stay for a maximum of "+getMaxDays+" days. If you would like more days please select a date before the current one.");
+            $("#arr-date-set").text("Arriving on the " + getUserDate);
+            $("#your-max-days").text("You can stay for a maximum of " + getMaxDays + " days. If you would like more days please select a date before the current one.");
         }
 
         function setSelectedNumDays(numDay) {
@@ -47,7 +73,8 @@ $(window).load(function () {
         }
 
         function outputDays(avalDays) {
-            console.log(avalDays);
+            //console.log(avalDays);
+            
             // reset day boxes
             $(".day-area").html("");
             // output days
@@ -61,9 +88,11 @@ $(window).load(function () {
 
         function getDataJSON(userDate) {
             console.log(userDate);
+            
             $.getJSON("js/avaldata.json")
                 .done(function (json) {
-                    $("body").append("<h1>" + json.datesArrayMay[0].DATE + "</h1>");
+                    $("body").append("<h1>" + userDate + "</h1>");
+                    //$("body").append("<h1>" + json.datesArrayMay[0].DATE + "</h1>");
 
                     var getPod = json.datesArrayMay[0].GP1;
                     var getPodAval = json.datesArrayMay[0];
@@ -71,8 +100,20 @@ $(window).load(function () {
                         $("#daysstay").text(json.datesArrayMay[0].GP1AVFOR);
                         // this function param will take the userDate var from selected value in datepicker
                         var pod1aval = json.datesArrayMay[0].GP1AVFOR;
+                        
                         outputDays(pod1aval);
-                        setSelectedDate(userDate,pod1aval);
+                        setSelectedDate(userDate, pod1aval);
+                        //$("#your-max-days").after("<h2>"+pod1aval+"</h2>");
+                        // set user prompt in input
+                        var defaultDayBox = $("#your-max-days");
+                        var pickNightsID = $("#pick-nights");
+                        if(pickNightsID){
+                            // reset how many nights text on each date click
+                            pickNightsID.html("");
+                        }else{
+                          console.log("test");  
+                        }
+                        defaultDayBox.after("<h2 id='pick-nights'>Pick your nights from a max of "+pod1aval+"</h2>");
                     } else {
                         $(".day-area").text("pod not avalaible");
                         console.log("pod not avalaible");
