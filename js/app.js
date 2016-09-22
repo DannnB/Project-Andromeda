@@ -19,10 +19,32 @@ $(window).load(function () {
     function bookingApp() {
         // if this dosen't pop up they we broke it somewhere out of this function most likely 
         console.log("Booking App func Started, don't let your dreams be dreams!");
+        // init the datepicker
+        // disable days
+        function setUnAvalDates(){
+            var dateArray = []; 
+            ///
+            ///
+            ///
+            ///     START HERE!
+            ///
+            ///
+            ///
+            function getAllUnAvalDates(){ // adds to array
+                dateArray.push("2016-09-29", "2016-09-26")
+                console.log(dateArray);
+            }
+            getAllUnAvalDates();
+          //var array = ["2016-09-29", "2016-09-26"]; 
+        }
+        
+        // user selection part
         var userDate = "Please pick a date!"; // get user date, string for testing
         // get seleted date
         $("#arr_date").datepicker({
             inline: true, 
+            minDate: 3,
+        maxDate: "+4Y",
             showOtherMonths: true,
             dateFormat: 'yy-mm-dd',
             dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -52,8 +74,10 @@ $(window).load(function () {
         });
 
         function setSelectedDate(getUserDate, getMaxDays) {
-            $("#arr-date-set").text("Arriving on the " + getUserDate);
-            $("#arr-date-set").text("Arriving on the " + getUserDate);
+            var formatDate = moment(getUserDate).format('DD/MM/YYYY');
+            
+            $("#arr-date-set").text("Arriving on the " + formatDate);
+            //$("#arr-date-set").text("Arriving on the " + getUserDate);
             $("#your-max-days").text("You can stay for a maximum of " + getMaxDays + " days. If you would like more days please select a date before the current one.");
         }
 
@@ -91,7 +115,7 @@ $(window).load(function () {
             
             $.getJSON("js/avaldata.json")
                 .done(function (json) {
-                    $("body").append("<h1>" + userDate + "</h1>");
+                    //$("body").append("<h1>" + userDate + "</h1>");
                     //$("body").append("<h1>" + json.datesArrayMay[0].DATE + "</h1>");
 
                     var getPod = json.datesArrayMay[0].GP1;
