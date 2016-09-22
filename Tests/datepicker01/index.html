@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
+    <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    moment().format();
+</script>
+</head>
+
+<body>
+
+    <p>Choose your dates.</p>
+    <br/> Start Date
+    <div class="makeItPretty" id="arr_date"></div>
+    End Date
+    <div class="makeItPretty" id="dep_date"></div>
+    <div class="holder">
+        <h1>No of days you can stay</h1>
+        <!--<input type="text" id="num_nights" readonly>-->
+        <span class="howManyDays">Pick a date...</span>
+    </div>
+    <select class="num-nights"></select>
+
+    <hr>
+    <hr>
+    <div id="console-log"></div>
+
+
+</body>
+
+</html>

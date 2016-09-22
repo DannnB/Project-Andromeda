@@ -1,0 +1,11 @@
+#main {
+	border: 2px dotted red;
+}
+
+.glampingpod img {
+	margin: 0 auto;
+	display: block;
+}
+.glampingpod h1 {
+	text-align:center;
+}

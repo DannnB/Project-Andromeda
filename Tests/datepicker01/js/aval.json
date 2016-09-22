@@ -1,0 +1,45 @@
+{
+  "dates": {
+    "2016": {
+      "09": {
+        "29": {
+          "p": 198,
+          "gp1": false,
+          "gp2": true,
+          "gp3": true,
+          "gp4": true,
+          "gp5": false,
+          "event01": {
+            "isEventOn": true,
+            "eventn": "danfest",
+            "eventurl": "http://outtograss.com/event/danfest-2017"
+          },
+          "event02": {
+            "isEventOn": true,
+            "eventn": "noelfest",
+            "eventurl": "http://outtograss.com/event/noelfest-2018"
+          },
+          "30": {
+          "p": 152,
+          "gp1": true,
+          "gp2": false,
+          "gp3": true,
+          "gp4": false,
+          "gp5": false,
+          "event01": {
+            "isEventOn": true,            
+            "eventn": "danfest",
+            "eventtype": "music",
+            "eventurl": "http://outtograss.com/event/danfest-2017",
+            "eventdir": "adjk hakjdhsajdhaskjdh"
+          },
+          "event02": {
+            "isEventOn": no,
+            "eventn": "noelfest",
+            "eventurl": "http://outtograss.com/event/noelfest-2018"
+          }
+        }
+      }
+    }
+  }
+}
