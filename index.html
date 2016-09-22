@@ -12,7 +12,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>
     <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
-    <script src="js/appssss.js"></script>
+
     <script>
         moment().format();
     </script>
@@ -23,54 +23,66 @@
         <div id="panel4glamp">
             <div class="row" class="podpanel">
                 <h1>Pod 1</h1>
-
+                
                 <div class="small-6 large-6 columns">
-                    <div class="makeItPretty" id="arr_date"></div>
+                    <div class="makeItPretty" id="arr_date">
+
+                    </div>
+                    <button id="giveMeData">Click me to get data!</button>
                 </div>
                 <div class="small-6 large-6 columns">
                     <label>Number of Days:</label>
-                    <select class="1-100"></select>
+                    <input type="number" class="num-days" disabled>
                 </div>
             </div>
-            <p>Choose your dates.</p>
+            <h2 id="arr-date-set">Pick A Date</h2>
+            <p id="your-max-days">14 days max</p>
+            <div class="row" class="">
+                <div class="small-12 large-12 columns">
+                    <div class="day-area">
+                    </div>
+                </div>
+            </div>
+            <!--<p>Choose your dates.</p>
             <br/> Start Date
-            <!--<div class="makeItPretty" id="arr_date"></div>-->
+            <div class="makeItPretty" id="arr_date"></div>
             End Date
             <div class="makeItPretty" id="dep_date"></div>
             <div class="holder">
                 <h1>No of days you can stay: <span id="daysstay"></span></h1>
-                <!--<input type="text" id="num_nights" readonly>-->
+                <input type="text" id="num_nights" readonly>
                 <span class="howManyDays">Pick a date...</span>
             </div>
             <select class="num-nights"></select>
-
-            <hr>
-            <hr>
+-->
 
         </div>
     </div>
-    <button onClick="hello();">Click me to get data!</button>
+
     <div id="console-log"></div>
     <div id="images"></div>
 
     <script>
-        var userDate;
-        function hello(){
-            $.getJSON("js/avaldata.json")
-                .done(function (json){
-                $("body").append("<h1>"+json.datesArrayMay[0].DATE+"</h1>");
-                var getPod = json.datesArrayMay[0].GP1;
-                if(getPod){
-                    $("#daysstay").text(json.datesArrayMay[0].GP1AVFOR)
-                }
-                
-                    console.log("JSON Data: " + json.datesArrayMay[0]);
-                })
-                .fail(function (jqxhr, textStatus, error) {
-                    var err = textStatus + ", " + error;
-                    console.log("Request Failed: " + err);
-                });
-        }
+        /* var userDate;
+                                function hello(){
+                                    $.getJSON("js/avaldata.json")
+                                        .done(function (json){
+                                        $("body").append("<h1>"+json.datesArrayMay[0].DATE+"</h1>");
+                                        var getPod = json.datesArrayMay[0].GP1;
+                                        var getPodAval = json.datesArrayMay[0]
+                                        if(getPod){
+                                            $("#daysstay").text(json.datesArrayMay[0].GP1AVFOR)
+                                        }else{
+                                            $("#daysstay").text("post not avalaible")
+                                        }
+                                        
+                                            console.log("JSON Data: " + json.datesArrayMay[0]);
+                                        })
+                                        .fail(function (jqxhr, textStatus, error) {
+                                            var err = textStatus + ", " + error;
+                                            console.log("Request Failed: " + err);
+                                        });
+                                }*/
         //hello();
         /*(function () {
             
@@ -98,6 +110,7 @@
             */
         /*});*/
     </script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
