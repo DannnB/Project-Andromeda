@@ -21,8 +21,8 @@ $(window).load(function () {
         console.log("Booking App func Started, don't let your dreams be dreams!");
         // init the datepicker
         // disable days
-        function setUnAvalDates(){
-            var dateArray = []; 
+        function setUnAvalDates() {
+            var dateArray = [];
             ///
             ///
             ///
@@ -30,25 +30,25 @@ $(window).load(function () {
             ///
             ///
             ///
-            function getAllUnAvalDates(){ // adds to array
+            function getAllUnAvalDates() { // adds to array
                 dateArray.push("2016-09-29", "2016-09-26")
                 console.log(dateArray);
             }
             getAllUnAvalDates();
-          //var array = ["2016-09-29", "2016-09-26"]; 
+            //var array = ["2016-09-29", "2016-09-26"]; 
         }
-        
+
         // user selection part
         var userDate = "Please pick a date!"; // get user date, string for testing
         // get seleted date
         $("#arr_date").datepicker({
-            inline: true, 
-            minDate: 3,
-        maxDate: "+4Y",
-            showOtherMonths: true,
-            dateFormat: 'yy-mm-dd',
-            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            onSelect: function(date){
+            inline: true
+            , minDate: 3
+            , maxDate: "+4Y"
+            , showOtherMonths: true
+            , dateFormat: 'yy-mm-dd'
+            , dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            , onSelect: function (date) {
                 //console.log(date);
                 userDate = date;
                 getDataJSON(userDate);
@@ -75,7 +75,7 @@ $(window).load(function () {
 
         function setSelectedDate(getUserDate, getMaxDays) {
             var formatDate = moment(getUserDate).format('DD/MM/YYYY');
-            
+
             $("#arr-date-set").text("Arriving on the " + formatDate);
             //$("#arr-date-set").text("Arriving on the " + getUserDate);
             $("#your-max-days").text("You can stay for a maximum of " + getMaxDays + " days. If you would like more days please select a date before the current one.");
@@ -98,7 +98,7 @@ $(window).load(function () {
 
         function outputDays(avalDays) {
             //console.log(avalDays);
-            
+
             // reset day boxes
             $(".day-area").html("");
             // output days
@@ -112,7 +112,7 @@ $(window).load(function () {
 
         function getDataJSON(userDate) {
             console.log(userDate);
-            
+
             $.getJSON("js/avaldata.json")
                 .done(function (json) {
                     //$("body").append("<h1>" + userDate + "</h1>");
@@ -124,20 +124,20 @@ $(window).load(function () {
                         $("#daysstay").text(json.datesArrayMay[0].GP1AVFOR);
                         // this function param will take the userDate var from selected value in datepicker
                         var pod1aval = json.datesArrayMay[0].GP1AVFOR;
-                        
+
                         outputDays(pod1aval);
                         setSelectedDate(userDate, pod1aval);
                         //$("#your-max-days").after("<h2>"+pod1aval+"</h2>");
                         // set user prompt in input
                         var defaultDayBox = $("#your-max-days");
                         var pickNightsID = $("#pick-nights");
-                        if(pickNightsID){
+                        if (pickNightsID) {
                             // reset how many nights text on each date click
                             pickNightsID.html("");
-                        }else{
-                          console.log("test");  
+                        } else {
+                            console.log("test");
                         }
-                        defaultDayBox.after("<h2 id='pick-nights'>Pick your nights from a max of "+pod1aval+"</h2>");
+                        defaultDayBox.after("<h2 id='pick-nights'>Pick your nights from a max of " + pod1aval + "</h2>");
                     } else {
                         $(".day-area").text("pod not avalaible");
                         console.log("pod not avalaible");
@@ -154,6 +154,69 @@ $(window).load(function () {
                     console.log("Request Failed: " + err);
                 });
         }
+        // SEND/GET STUFF TO PHP USING AJAX
+        function serverCheck() {
+            var testReturnDays;
+            var testDays;
+            var requestButton = $("#postGetData");
+
+            function getJSONData(phpData) {
+                console.log(" The server returned: " + phpData);
+            }
+
+            function sendToServer() {
+                var testDays = 7;
+                // send to php, if great or less return true false
+                requestButton.click(function () {
+                    console.log("Post and Get data button clicked");
+                    $.ajax({
+                        url: '../checkAval.php', //This is the current doc
+                        type: "POST"
+                        , dataType: 'json', // add json datatype to get json
+                        data: ({
+                            numDays: testDays
+                        })
+                        , success: function (data) {
+                            console.log("Returned data checked by php: "+data);
+                        }
+                    }).fail(function () {
+                        console.log("Error: Your Dreams be Dreams");
+                    });
+                    /*$.ajax({
+                        url: 'ajax.php', //This is the current doc
+                        type: "POST"
+                        , data: ({
+                            name: 145
+                        })
+                        , success: function (data) {
+                            console.log(data);
+                            alert(data);
+                            //or if the data is JSON
+                            var jdata = jQuery.parseJSON(data);
+                            getJSONData(phpData);
+                        }
+                    }).fail(function () {
+                        console.log("error");
+
+                    });*/
+                });
+
+            }
+
+            function getFromServer() {
+                if (testReturnDays) { // if => than 10 TRUE
+                    console.log("the value is true");
+                } else { // if < than 10 FALSE
+                    console.log("the value is false");
+                }
+            }
+            sendToServer();
+        }
+        serverCheck();
+
+
+
+        ////// INFO FOR NOTES
         // Init datepicker
         // beforeDay: add booked day for current pod/pitches
 
