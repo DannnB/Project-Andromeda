@@ -22,14 +22,8 @@ $(window).load(function () {
         // init the datepicker
         // disable days
         function setUnAvalDates() {
-            var dateArray = [];
-            ///
-            ///
-            ///
-            ///     START HERE!
-            ///
-            ///
-            ///
+            var dateArray = []; // get this from JSON?? 
+            
             function getAllUnAvalDates() { // adds to array
                 dateArray.push("2016-09-29", "2016-09-26")
                 console.log(dateArray);
@@ -37,7 +31,7 @@ $(window).load(function () {
             getAllUnAvalDates();
             //var array = ["2016-09-29", "2016-09-26"]; 
         }
-
+setUnAvalDates();
         // user selection part
         var userDate = "Please pick a date!"; // get user date, string for testing
         // get seleted date
@@ -52,10 +46,15 @@ $(window).load(function () {
                 //console.log(date);
                 userDate = date;
                 getDataJSON(userDate);
-                return userDate = date;
+                serverCheck(11); // add date to check server if still aval
             }
         , });
-
+        
+        
+        
+        
+        
+        
         $("somethingtogetdate if needed").click(function () {
             var first, second;
             first = $(".datepicker[name=datepicker1]").val();
@@ -68,10 +67,10 @@ $(window).load(function () {
 
 
         // get json
-        $("#giveMeData").click(function () {
+        /*$("#giveMeData").click(function () {
             // onSelected methord will run this fuction
             getDataJSON(userDate);
-        });
+        });*/
 
         function setSelectedDate(getUserDate, getMaxDays) {
             var formatDate = moment(getUserDate).format('DD/MM/YYYY');
@@ -155,22 +154,24 @@ $(window).load(function () {
                 });
         }
         // SEND/GET STUFF TO PHP USING AJAX
-        function serverCheck() {
-            var testReturnDays;
-            var testDays;
+        function serverCheck(userDateStore) {
+            var testReturnDays, testDays;
             var requestButton = $("#postGetData");
-
+            var userDataNow = userDateStore;
             function getJSONData(phpData) {
                 console.log(" The server returned: " + phpData);
+                //getFromServer(phpData);
             }
 
-            function sendToServer() {
-                var testDays = 7;
+            function sendToServer(userDataNow) {
+                var testDays = userDataNow; // number to test
                 // send to php, if great or less return true false
-                requestButton.click(function () {
+                // requestButton.click(function () { // use for button test, remove () at end of function
+                
+                (function () { // runs check on date selected
                     console.log("Post and Get data button clicked");
                     $.ajax({
-                        url: '../checkAval.php', //This is the current doc
+                        url: 'js/checkAval.php', //This is the current doc
                         type: "POST"
                         , dataType: 'json', // add json datatype to get json
                         data: ({
@@ -178,6 +179,7 @@ $(window).load(function () {
                         })
                         , success: function (data) {
                             console.log("Returned data checked by php: "+data);
+                            getJSONData(data);
                         }
                     }).fail(function () {
                         console.log("Error: Your Dreams be Dreams");
@@ -199,20 +201,20 @@ $(window).load(function () {
                         console.log("error");
 
                     });*/
-                });
+                }());
 
             }
 
-            function getFromServer() {
+            function getFromServer(testReturnDays) {
                 if (testReturnDays) { // if => than 10 TRUE
                     console.log("the value is true");
                 } else { // if < than 10 FALSE
                     console.log("the value is false");
                 }
             }
-            sendToServer();
+            sendToServer(userDateStore);
         }
-        serverCheck();
+        //serverCheck();
 
 
 
