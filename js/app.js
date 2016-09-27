@@ -21,23 +21,46 @@ $(window).load(function () {
         console.log("Booking App func Started, don't let your dreams be dreams!");
         // init the datepicker
         // disable days
-        function setUnAvalDates() {
+        function setUnAvalDates(date) {
             var dateArray = []; // get this from JSON?? 
-            
+            /*
             function getAllUnAvalDates() { // adds to array
-                dateArray.push("2016-09-29", "2016-09-26")
+                dateArray.push("2016-10-10", "2016-10-15")
                 console.log(dateArray);
             }
-            getAllUnAvalDates();
+            getAllUnAvalDates();*/
             //var array = ["2016-09-29", "2016-09-26"]; 
+          /*  function woops(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ dateArray.indexOf(string) == -1 ]
+    }*/
         }
-setUnAvalDates();
+//setUnAvalDates();
         // user selection part
         var userDate = "Please pick a date!"; // get user date, string for testing
+        
+        // disable dates
+        var arrayD = ["2016-10-14", "2016-10-15", "2013-10-16"]
+
+var holydays = ['10-12-2016', '10-20-2016', '10-13-2016'];
+
+function highlightDays(date) {
+    for (var i = 0; i < holydays.length; i++) {
+        if (new Date(holydays[i]).toString() == date.toString()) {
+            console.log(holydays[i]);
+            return [true, 'highlight'];
+        }
+    }
+    return [true, ''];
+
+}
+        
+        
         // get seleted date
+        // datepicker init
         $("#arr_date").datepicker({
             inline: true
-            , minDate: 3
+            , minDate: 5
             , maxDate: "+4Y"
             , showOtherMonths: true
             , dateFormat: 'yy-mm-dd'
@@ -46,9 +69,16 @@ setUnAvalDates();
                 //console.log(date);
                 userDate = date;
                 getDataJSON(userDate);
-                serverCheck(11); // add date to check server if still aval
-            }
-        , });
+                serverCheck(userDate); // add date to check server if still aval
+            },
+            beforeShowDay: //highlightDays,
+            
+            function (date){
+                var array = ["2016-10-14","2016-10-17","2016-10-18"];
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ array.indexOf(string) == -1 ]
+    }
+        });
         
         
         
@@ -153,6 +183,7 @@ setUnAvalDates();
                     console.log("Request Failed: " + err);
                 });
         }
+        
         // SEND/GET STUFF TO PHP USING AJAX
         function serverCheck(userDateStore) {
             var testReturnDays, testDays;
@@ -164,7 +195,9 @@ setUnAvalDates();
             }
 
             function sendToServer(userDataNow) {
-                var testDays = userDataNow; // number to test
+                var testDays = 7; // number to test
+                var testDate = userDataNow; // date to test
+                
                 // send to php, if great or less return true false
                 // requestButton.click(function () { // use for button test, remove () at end of function
                 
@@ -175,11 +208,12 @@ setUnAvalDates();
                         type: "POST"
                         , dataType: 'json', // add json datatype to get json
                         data: ({
-                            numDays: testDays
+                            numDays: testDays,
+                            theDate: testDate
                         })
                         , success: function (data) {
-                            console.log("Returned data checked by php: "+data);
-                            getJSONData(data);
+                            console.log(data);
+                            //getJSONData(data);
                         }
                     }).fail(function () {
                         console.log("Error: Your Dreams be Dreams");

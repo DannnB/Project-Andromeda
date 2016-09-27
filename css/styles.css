@@ -61,3 +61,29 @@ h1 {
 #arr-date-set {
     text-align: center;
 }
+
+
+
+
+/* DATEPICKER UI OVERIDES */
+.highlight {
+    border: 2px blue solid;
+}
+#dp .ui-datepicker tbody td.highlight a{
+  background-color: red; 
+  border-bottom: 0px blue solid;}
+  #dp .ui-datepicker tbody td.highlight {
+  background-color: red; }
+  
+  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid #c5dbec;
+    background: #dfeffc;
+    font-weight: bold;
+    color: #000000;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: 1px solid #79b7e7;
+    background: #dfeffc;
+    font-weight: bold;
+    color: #000000;
+}
