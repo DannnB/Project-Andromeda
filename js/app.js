@@ -200,8 +200,13 @@ $(window).load(function () {
 
                 var getPod = json.datesArrayMay[0].GP1;
                 var getPodAval = json.datesArrayMay[0];
+            
+            
                 if (getPod) {
                     $("#daysstay").text(json.datesArrayMay[0].GP1AVFOR);
+                    
+                    $("#giveMeData").text(json.datesArrayApril[0].GP2AVFOR);
+                    
                     // this function param will take the userDate var from selected value in datepicker
                     var pod1aval = json.datesArrayMay[0].GP1AVFOR;
 
