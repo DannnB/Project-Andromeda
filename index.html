@@ -20,18 +20,116 @@
 
 <body>
     <div class="wrap">
-        <div id="panel4glamp">
+        <!-- HOME -->
+        <div id="bookstart">
+    
+        </div>
+        <div id="panel1home" class="panels">
+            <div class="row">
+                <h1>What you booking bruv?</h1>
+                <div class="row">
+                    <div class="small-12 large-12 columns">
+                        <button class="button-col">Camping</button>
+                    </div> 
+                       <div class="small-12 large-12 columns">
+                        <button>Glamping</button>
+                    </div> 
+                       <div class="small-12 large-12 columns">
+                        <button>Event</button>
+                    </div> 
+                        
+                </div>
+                <div class="row">
+                    <div class="small-6 large-6 columns">
+                        some info
+                    </div>
+                    <div class="small-6 large-6 columns">
+                        some info
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CAMP TYPE -->
+        <div id="panel2camp" class="panels">
+            <div class="row">
+                <h1>Book a Camping Pitch</h1>
+                <div class="row">
+                    <div class="small-6 large-6 columns">
+                        FORM HERE
+                    </div>
+                    <div class="small-6 large-6 columns">
+                        SUBMIT PLUS INFO HERE
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- POD TYPE -->
+        <div id="panel2glamptype" class="panels">
+            <div class="row">
+                <h1>Pick Glamping Pod</h1>
+                <p>Each pod includes a Electricity Hookup as standard</p>
+                <hr>
+                <div class="row">
+                    <div id="pod4but" class="small-6 large-6 columns podbox">
+                       <h3>Pod 1</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>2 single beds</p>
+                    </div>
+                    <div id="pod2but" class="small-6 large-6 columns podbox">
+                        <h3>Pod 2</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="pod3but" class="small-6 large-6 columns podbox">
+                        <h3>Pod 3</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                    <div id="pod4but" class="small-6 large-6 columns podbox">
+                        <h3>Pod 4</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="pod5but" class="small-6 large-6 columns podbox">
+                        <h3>Pod 5</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                    <div class="small-6 large-6 columns">
+                        <h3>Extra Infomation</h3>
+                        
+                        <p>About pod stuff</p>
+                        <p style="text-align:left;">Pods include:</p>
+                        <ul style="text-align:left;">
+                            <li>info 1</li>
+                            <li>info 2</li>
+                            <li>info 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- GLAMP PANEL -->
+        <div id="panel3glamp" class="panels">
             <div class="row" class="podpanel">
-               <h1 id="testArea"></h1>
+                <h1 id="testArea"></h1>
                 <h1>Pod 1</h1>
-                
+
                 <div class="small-6 large-6 columns">
                     <!--<div class="makeItPretty" id="arr_date">-->
-<button id="postGetData">Send and Get Data</button>
-                    </div>
-                    <button disabled id="giveMeData">Click me to get data!</button>
-                    <input type="text" id='arr_date' name="datepicker1" />
+                    <button id="postGetData">Send and Get Data</button>
                 </div>
+                <button disabled id="giveMeData">Click me to get data!</button>
+                <input type="text" id='arr_date' name="datepicker1" />
+
                 <div class="small-6 large-6 columns">
                     <label>Number of Days:</label>
                     <input type="number" class="num-days" disabled>
@@ -45,73 +143,34 @@
                     </div>
                 </div>
             </div>
-            <!--<p>Choose your dates.</p>
-            <br/> Start Date
-            <div class="makeItPretty" id="arr_date"></div>
-            End Date
-            <div class="makeItPretty" id="dep_date"></div>
-            <div class="holder">
-                <h1>No of days you can stay: <span id="daysstay"></span></h1>
-                <input type="text" id="num_nights" readonly>
-                <span class="howManyDays">Pick a date...</span>
-            </div>
-            <select class="num-nights"></select>
--->
-<ul id="listObj">
-	
-</ul>
+
+            <ul id="listObj">
+
+            </ul>
+
         </div>
+        
+        <!-- POD TYPE -->
+        <div id="panel4final" class="panels">
+            <div class="row">
+                <h1>Thank you for booking</h1>
+                <div class="row">
+                    <div class="small-6 large-6 columns">
+                        Read More on our blog
+                    </div>
+                    <div class="small-6 large-6 columns">
+                        Contact us here
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 
     <div id="console-log"></div>
     <div id="images"></div>
 
     <script>
-        /* var userDate;
-                                function hello(){
-                                    $.getJSON("js/avaldata.json")
-                                        .done(function (json){
-                                        $("body").append("<h1>"+json.datesArrayMay[0].DATE+"</h1>");
-                                        var getPod = json.datesArrayMay[0].GP1;
-                                        var getPodAval = json.datesArrayMay[0]
-                                        if(getPod){
-                                            $("#daysstay").text(json.datesArrayMay[0].GP1AVFOR)
-                                        }else{
-                                            $("#daysstay").text("post not avalaible")
-                                        }
-                                        
-                                            console.log("JSON Data: " + json.datesArrayMay[0]);
-                                        })
-                                        .fail(function (jqxhr, textStatus, error) {
-                                            var err = textStatus + ", " + error;
-                                            console.log("Request Failed: " + err);
-                                        });
-                                }*/
-        //hello();
-        /*(function () {
-            
-            console.log("hello");
-            /* var flickerAPI = "js/avaldata.json";
-            $.getJSON( flickerAPI, {
-              tags: "GP2",
-              tagmode: "any",
-              format: "json"
-            })
-              .done(function( data ) {
-                $.each( data.items, function( i, item ) {
-                      
-                   $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-                  if ( i === 7 ) {
-                    return false;
-                  }
-             $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-            if ( i === 7 ) {
-              return false;
-            }
-            });
-            });
-            })();
-            */
-        /*});*/
     </script>
     <script src="js/app.js"></script>
 </body>

@@ -19,15 +19,29 @@ $(window).load(function () {
     function bookingApp() {
         // if this dosen't pop up they we broke it somewhere out of this function most likely 
         console.log("Booking App func Started, don't let your dreams be dreams!");
+        // TEMP STORE SELECTORS FOR LATER USE
+        var getKupbook = $(".kupbook"); // main booking holder after footer
+        var getPanel = "placeholder"; // Values: HOME, TYPESELECT, CAMP, GP1, GP2, GP3, GP4, GP5
+        var setView = $(".panels");
+        setView.hide(); // default booking panels hidden
+
+        var getpanel1home = $("#panel1home")
+            , getpanel2camp = $("#panel2camp")
+            , getpanel2glamptype = $("#panel2glamptype")
+            , getpanel3glamp = $("#panel3glamp")
+            , getpanel4final = $("#panel4final");
+        var currentPanel = $("#panel1home"); // get id of shown panel
         
-        
-        
-        
+        getpanel1home.show().addClass("panel-active");
+        getpanel2camp.show();
+        getpanel2glamptype.show();
+        getpanel3glamp.show();
+        getpanel4final.show();
         
         
         // init the datepicker
         // disable days
-        
+
         function setUnAvalDates(date) {
             var dateArray = []; // get this from JSON?? 
             /*
@@ -182,7 +196,7 @@ $(window).load(function () {
                     if (obj.hasOwnProperty(prop)) {
                         //console.log(prop + " = " + obj[prop]);
                         makeRed(prop, obj[prop]);
-                            //getUl.append("<li>"+prop+" = "+obj[prop]) // just outputs all the data with no logic
+                        //getUl.append("<li>"+prop+" = "+obj[prop]) // just outputs all the data with no logic
                     }
                 }
             } // end LOOP
@@ -199,7 +213,7 @@ $(window).load(function () {
         /// FIX THIS SECTION, ITS NOT FINDING GP1????
         function getDataJSON(userDate) {
             console.log(userDate);
-            
+
             var userDate = userDate;
             var userDateTest = "04/15/2017"; //"04/10/2017";
             var userMonth = "april";
@@ -210,19 +224,19 @@ $(window).load(function () {
             $.getJSON("js/avaldata.json")
                 .done(function (json) {
                     getDateData(json);
-                    
+
                     var getPod = json.datesArrayMay[0].GP1;
                     var getPodAval = json.datesArrayMay[0];
                     var isAccomAval = json.datesObj[userMonth][userDateTest][userAccommType][userAccommAval];
                     //var isAccomAval = json.datesObj[userMonth][userDateTest];
                     console.log("Is AVAL: " + isAccomAval);
-                    if (isAccomAval) {
+                    if (true) { // isAccomAval
                         //$("#daysstay").text(json.datesArrayMay[0].GP1AVFOR);
                         //$("#testArea").text(json.datesObj[userMonth][userDateTest][userAccommType]["AVFOR"]);
-                        $("#testArea").text(json.datesObj[userMonth][userDateTest][userAccommType][userDateAvalDays]);
+                        //$("#testArea").text(json.datesObj[userMonth][userDateTest][userAccommType][userDateAvalDays]);
                         //$("#testArea").text(json.datesObj[userMonth][userDateTest]);
 
-                        
+
 
                         // this function param will take the userDate var from selected value in datepicker
                         var pod1aval = json.datesArrayMay[0].GP1AVFOR;
