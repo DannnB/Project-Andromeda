@@ -1,145 +1,150 @@
 {
-	"datesObjApril": {
-        "10/04/2017": {
-     "CAMP": true,
-     "CAMPAVFOR": 190,
-     "GP1": true,
-     "GP1AVFOR": 6,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": false,
-     "EVENTNAME": "",
-     "EVENTURL": ""
-    },
-        "15/04/2017": {
-     "CAMP": true,
-     "CAMPAVFOR": 32,
-     "GP1": true,
-     "GP1AVFOR": 6,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": true,
-     "EVENTNAME": "Dan Fest",
-     "EVENTURL": "http://danfest.co.uk"
-    },
-        "23/04/2017": {
-     "CAMP": true,
-     "CAMPAVFOR": 130,
-     "GP1": true,
-     "GP1AVFOR": 6,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": true,
-     "EVENTNAME": "A Wedding",
-     "EVENTURL": "http://somethingwedding.co.uk"
+    "datesObj": {
+        "april": {
+            "04/10/2017": {
+                "CAMP": true
+                , "CAMPAVFOR": 190
+                , "GP1": {
+                    "AVAL": true,
+                    "AVFOR": 6
+                }
+                , "GP2": true
+                , "GP2AVFOR": 3
+                , "GP3": false
+                , "GP3AVFOR": 0
+                , "GP4": true
+                , "GP4AVFOR": 13
+                , "GP5": true
+                , "GP5AVFOR": 7
+                , "EVENT": false
+                , "EVENTNAME": ""
+                , "EVENTURL": ""
+            }
+            , "04/15/2017": {
+                "CAMP": true
+                , "CAMPAVFOR": 32
+                , "GP1": true
+                , "GP1AVFOR": 12
+                , "GP2": true
+                , "GP2AVFOR": 3
+                , "GP3": false
+                , "GP3AVFOR": 0
+                , "GP4": true
+                , "GP4AVFOR": 13
+                , "GP5": true
+                , "GP5AVFOR": 7
+                , "EVENT": true
+                , "EVENTNAME": "Dan Fest"
+                , "EVENTURL": "http://danfest.co.uk"
+            }
+            , "23/04/2017": {
+                "CAMP": true
+                , "CAMPAVFOR": 130
+                , "GP1": true
+                , "GP1AVFOR": 6
+                , "GP2": true
+                , "GP2AVFOR": 3
+                , "GP3": false
+                , "GP3AVFOR": 0
+                , "GP4": true
+                , "GP4AVFOR": 13
+                , "GP5": true
+                , "GP5AVFOR": 7
+                , "EVENT": true
+                , "EVENTNAME": "A Wedding"
+                , "EVENTURL": "http://somethingwedding.co.uk"
+            }
+        }
     }
-    },
-    "datesArrayMarch": [{}],
-	"datesArrayApril": [{
+    , "datesArrayMarch": [{}]
+    , "datesArrayApril": [{
         "23/04/2017": {
-     "CAMP": true,
-     "CAMPAVFOR": 130,
-     "GP1": true,
-     "GP1AVFOR": 6,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": true,
-     "EVENTNAME": "A Wedding",
-     "EVENTURL": "http://somethingwedding.co.uk"
-    }
-    }],
-   "datesArrayMay": [{
-     "DATE": "09/05/2017",
-     "CAMP": true,
-     "CAMPAVFOR": 193,
-     "GP1": true,
-     "GP1AVFOR": 7,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": true,
-     "EVENTNAME": "A Wedding",
-     "EVENTURL": "http://somethingwedding.co.uk"
+            "CAMP": true
+            , "CAMPAVFOR": 130
+            , "GP1": true
+            , "GP1AVFOR": 6
+            , "GP2": true
+            , "GP2AVFOR": 3
+            , "GP3": false
+            , "GP3AVFOR": 0
+            , "GP4": true
+            , "GP4AVFOR": 13
+            , "GP5": true
+            , "GP5AVFOR": 7
+            , "EVENT": true
+            , "EVENTNAME": "A Wedding"
+            , "EVENTURL": "http://somethingwedding.co.uk"
+        }
+    }]
+    , "datesArrayMay": [{
+            "DATE": "09/05/2017"
+            , "CAMP": true
+            , "CAMPAVFOR": 193
+            , "GP1": true
+            , "GP1AVFOR": 7
+            , "GP2": true
+            , "GP2AVFOR": 3
+            , "GP3": false
+            , "GP3AVFOR": 0
+            , "GP4": true
+            , "GP4AVFOR": 13
+            , "GP5": true
+            , "GP5AVFOR": 7
+            , "EVENT": true
+            , "EVENTNAME": "A Wedding"
+            , "EVENTURL": "http://somethingwedding.co.uk"
    }, {
-     "DATE": "26/05/2017",
-     "CAMP": true,
-     "CAMPAVFOR": 120,
-     "GP1": false,
-     "GP1AVFOR": 0,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": true,
-     "EVENTNAME": "Danfest",
-     "EVENTURL": "http://www.danfest.com"
+            "DATE": "26/05/2017"
+            , "CAMP": true
+            , "CAMPAVFOR": 120
+            , "GP1": false
+            , "GP1AVFOR": 0
+            , "GP2": true
+            , "GP2AVFOR": 3
+            , "GP3": false
+            , "GP3AVFOR": 0
+            , "GP4": true
+            , "GP4AVFOR": 13
+            , "GP5": true
+            , "GP5AVFOR": 7
+            , "EVENT": true
+            , "EVENTNAME": "Danfest"
+            , "EVENTURL": "http://www.danfest.com"
    }, {
-     "DATE": "15/05/2017",
-     "CAMP": true,
-     "CAMPAVFOR": 93,
-     "GP1": false,
-     "GP1AVFOR": 0,
-     "GP2": true,
-     "GP2AVFOR": 8,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": true,
-     "GP4AVFOR": 13,
-     "GP5": true,
-     "GP5AVFOR": 3,
-     "EVENT": false,
-     "EVENTNAME": "",
-     "EVENTURL": ""
-   }, 
-                     {
-     "DATE": "01/05/2017",
-     "CAMP": true,
-     "CAMPAVFOR": 12,
-     "GP1": false,
-     "GP1AVFOR": 0,
-     "GP2": true,
-     "GP2AVFOR": 3,
-     "GP3": false,
-     "GP3AVFOR": 0,
-     "GP4": false,
-     "GP4AVFOR": 0,
-     "GP5": true,
-     "GP5AVFOR": 7,
-     "EVENT": false,
-     "EVENTNAME": "",
-     "EVENTURL": ""
+            "DATE": "15/05/2017"
+            , "CAMP": true
+            , "CAMPAVFOR": 93
+            , "GP1": false
+            , "GP1AVFOR": 0
+            , "GP2": true
+            , "GP2AVFOR": 8
+            , "GP3": false
+            , "GP3AVFOR": 0
+            , "GP4": true
+            , "GP4AVFOR": 13
+            , "GP5": true
+            , "GP5AVFOR": 3
+            , "EVENT": false
+            , "EVENTNAME": ""
+            , "EVENTURL": ""
+   }
+        
+        , {
+            "DATE": "01/05/2017"
+            , "CAMP": true
+            , "CAMPAVFOR": 12
+            , "GP1": false
+            , "GP1AVFOR": 0
+            , "GP2": true
+            , "GP2AVFOR": 3
+            , "GP3": false
+            , "GP3AVFOR": 0
+            , "GP4": false
+            , "GP4AVFOR": 0
+            , "GP5": true
+            , "GP5AVFOR": 7
+            , "EVENT": false
+            , "EVENTNAME": ""
+            , "EVENTURL": ""
    }]
- }
+}
