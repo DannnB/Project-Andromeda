@@ -19,109 +19,120 @@ $(window).load(function () {
     function bookingApp() {
         // if this dosen't pop up they we broke it somewhere out of this function most likely 
         console.log("Booking App func Started, don't let your dreams be dreams!");
-        // TEMP STORE SELECTORS FOR LATER USE
-        var getKupbook = $(".kupbook"); // main booking holder after footer
-        var getPanel = "placeholder"; // Values: HOME, TYPESELECT, CAMP, GP1, GP2, GP3, GP4, GP5
-        var setView = $(".panels");
+
+        // MAIN INTERFACE VARS
+        var getKupbook = $(".kupbook"), // main booking holder after footer
+            getPanel = "placeholder", // Values: HOME, TYPESELECT, CAMP, GP1, GP2, GP3, GP4, GP5
+            setView = $(".panels");
         setView.hide(); // default booking panels hidden
+        // Store all panels in dom cache (faster)
+        var getpanel1home = $("#panel1home"),
+            getpanel2camp = $("#panel2camp"),
+            getpanel2glamptype = $("#panel2glamptype"),
+            getpanel3glamp = $("#panel3glamp"),
+            getpanel4final = $("#panel4final"),
+            currentPanel = $("#panel1home"); // get id of shown panel
 
-        var getpanel1home = $("#panel1home")
-            , getpanel2camp = $("#panel2camp")
-            , getpanel2glamptype = $("#panel2glamptype")
-            , getpanel3glamp = $("#panel3glamp")
-            , getpanel4final = $("#panel4final");
-        var currentPanel = $("#panel1home"); // get id of shown panel
-        
-        getpanel1home.show().addClass("panel-active");
-        getpanel2camp.show();
-        getpanel2glamptype.show();
+        // MAIN VARS FOR DATE PICKER
+        var userDate = "Please pick a date"; // default
+
+        // MAIN FORM DATA FOR PHP SUBMIT - this will get updates as the user progresses through the panels
+        // Variables to pass to booking.php
+        var formArrivalDate = "",
+            formNoOfNights = 0,
+            formAdults = 0,
+            formChildren = 0,
+            formDogs = 0,
+            formElectricity = false,
+            // FINAL DETAILS
+            formUsersName = "",
+            formUsersEmail = "",
+            formUsersPhone = "",
+            formUsersTotalAmount = 0;
+
+        // DEBUG SETTINGS FOR ALL PANELS - CAN BE USED FOR MASS CHANGES
+        var panelDebug = true;
+        if (panelDebug) {
+            //getpanel1home.show().addClass("panel-active");
+            //getpanel2camp.show();
+            //getpanel2glamptype.show();
+            //getpanel3glamp.show();
+            //getpanel4final.show();
+        }
         getpanel3glamp.show();
-        getpanel4final.show();
-        
-        
-        // init the datepicker
-        // disable days
 
-        function setUnAvalDates(date) {
-            var dateArray = []; // get this from JSON?? 
-            /*
-            function getAllUnAvalDates() { // adds to array
-                dateArray.push("2016-10-10", "2016-10-15")
-                console.log(dateArray);
-            }
-            getAllUnAvalDates();*/
-            //var array = ["2016-09-29", "2016-09-26"]; 
-            /*  function woops(date){
-        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-        return [ dateArray.indexOf(string) == -1 ]
-    }*/
-        }
-        //setUnAvalDates();
-        // user selection part
-        var userDate = "Please pick a date!"; // get user date, string for testing
-
-        // disable dates
-        var arrayD = ["2016-10-14", "2016-10-15", "2013-10-16"]
-
-        var holydays = ['10-12-2016', '10-20-2016', '10-13-2016'];
-
-        function highlightDays(date) {
-            for (var i = 0; i < holydays.length; i++) {
-                if (new Date(holydays[i]).toString() == date.toString()) {
-                    console.log(holydays[i]);
-                    return [true, 'highlight'];
-                }
-            }
-            return [true, ''];
-
-        }
-
-
-        // get seleted date
-        // datepicker init
+        // DATEPICKER INIT - MAIN FUNCTIONS GET CALLED HERE WITH USER INTERACTION
         $("#arr_date").datepicker({
-            inline: true
-            , minDate: 5
-            , maxDate: "+4Y"
-            , showOtherMonths: true
-            , dateFormat: 'yy-mm-dd'
-            , dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-            , onSelect: function (date) {
+            inline: true,
+            minDate: 5,
+            maxDate: "+5Y",
+            showOtherMonths: true,
+            dateFormat: 'yy-mm-dd',
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            onSelect: function (date) {
                 //console.log(date);
                 userDate = date;
                 getDataJSON(userDate);
                 serverCheck(userDate); // add date to check server if still aval
-            }
-            , beforeShowDay: //highlightDays,
-
-                function (date) {
+            },
+            beforeShowDay: function (date) {
                 var array = ["2016-10-14", "2016-10-17", "2016-10-18"];
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                 return [array.indexOf(string) == -1]
             }
+
         });
 
+        // DISABLE DATES FUNC
+        function disableDates() {
+            // beforeShowDay main func that does not work with 
+            function disableWithCustomArray() {
+                var array = ["2016-10-14", "2016-10-17", "2016-10-18"];
+                var string = jQuery.datepicker.formatDate('yy-mm-dd', theDate);
+                return [array.indexOf(string) == -1]
+                    // run test array for disabled dates
 
+            }
+            //disableWithCustomArray()
+            // Needs to check the chose accomm is aval(true) if not then disable dates
+            function setUnAvalDates(date) {
+                var dateArray = []; // get this from JSON?? 
+                /*
+                function getAllUnAvalDates() { // adds to array
+                    dateArray.push("2016-10-10", "2016-10-15")
+                    console.log(dateArray);
+                }
+                getAllUnAvalDates();*/
+                //var array = ["2016-09-29", "2016-09-26"]; 
+                /*  function woops(date){
+        var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+        return [ dateArray.indexOf(string) == -1 ]
+    }*/
+            }
+            //setUnAvalDates();
+            function disableDatesArray() {
+                var arrayD = ["2016-10-14", "2016-10-15", "2013-10-16"]
 
+                var holydays = ['10-12-2016', '10-20-2016', '10-13-2016'];
 
+                function highlightDays(date) {
+                    for (var i = 0; i < holydays.length; i++) {
+                        if (new Date(holydays[i]).toString() == date.toString()) {
+                            console.log(holydays[i]);
+                            return [true, 'highlight'];
+                        }
+                    }
+                    return [true, ''];
 
-
-        $("somethingtogetdate if needed").click(function () {
-            var first, second;
-            first = $(".datepicker[name=datepicker1]").val();
-            second = $(".datepicker[name=datepicker2]").val();
-            alert(first + " , " + second);
-            first = $(".datepicker[name=datepicker1]").datepicker('getDate');
-            second = $(".datepicker[name=datepicker2]").datepicker('getDate');
-            alert(first + " , " + second);
-        });
-
-
-        // get json
-        /*$("#giveMeData").click(function () {
-            // onSelected methord will run this fuction
-            getDataJSON(userDate);
-        });*/
+                }
+            }
+        } // DISABLE DATES END
+        
+        
+        
+        
+        
+        
 
         function setSelectedDate(getUserDate, getMaxDays) {
             var formatDate = moment(getUserDate).format('DD/MM/YYYY');
@@ -177,30 +188,34 @@ $(window).load(function () {
             getUl.text("");
 
             function makeRed(objKey, objProp) {
-                if (!objProp || objProp == "0") {
-                    getUl.append("<li style='color:red;'>" + objKey + " = " + objProp + "</li>");
-                } else {
-                    getUl.append("<li style='color:green;'>" + objKey + " = " + objProp + "</li>");
-                    if (objKey === "DATE" && objProp === "09/05/2017") {
-                        //var getIndex = json.findIndex(x => x.objProp == "09/05/2017")
-                        //console.log("The index of "+objProp+" is: " + getIndex);
-                        getUl.append("<li style='color:blue;'>" + objKey + " = " + objProp + "</li>");
-                    } else {
-                        getUl.append("<li style='color:red;'>No date exists</li>");
-                    }
-                }
-            }
-            for (var key in json.datesArrayMay) {
-                var obj = json.datesArrayMay[key]; // can get single date as well this is just for testing
-                for (var prop in obj) {
-                    if (obj.hasOwnProperty(prop)) {
-                        //console.log(prop + " = " + obj[prop]);
-                        makeRed(prop, obj[prop]);
-                        //getUl.append("<li>"+prop+" = "+obj[prop]) // just outputs all the data with no logic
-                    }
-                }
-            } // end LOOP
+                var turnOffDebugLoop = false;
 
+                if (turnOffDebugLoop) {
+                    if (!objProp || objProp == "0") {
+                        getUl.append("<li style='color:red;'>" + objKey + " = " + objProp + "</li>");
+                    } else {
+                        getUl.append("<li style='color:green;'>" + objKey + " = " + objProp + "</li>");
+                        if (objKey === "DATE" && objProp === "09/05/2017") {
+                            //var getIndex = json.findIndex(x => x.objProp == "09/05/2017")
+                            //console.log("The index of "+objProp+" is: " + getIndex);
+                            getUl.append("<li style='color:blue;'>" + objKey + " = " + objProp + "</li>");
+                        } else {
+                            getUl.append("<li style='color:red;'>No date exists</li>");
+                        }
+                    }
+
+                }
+                for (var key in json.datesArrayMay) {
+                    var obj = json.datesArrayMay[key]; // can get single date as well this is just for testing
+                    for (var prop in obj) {
+                        if (obj.hasOwnProperty(prop)) {
+                            //console.log(prop + " = " + obj[prop]);
+                            makeRed(prop, obj[prop]);
+                            //getUl.append("<li>"+prop+" = "+obj[prop]) // just outputs all the data with no logic
+                        }
+                    }
+                } // end LOOP
+            } // end debug on/off
             // add chosen data to object/array
 
 
@@ -210,16 +225,20 @@ $(window).load(function () {
 
         }
 
-        /// FIX THIS SECTION, ITS NOT FINDING GP1????
-        function getDataJSON(userDate) {
+        function getDataJSON(userDate, userAccommType, userDateMonth) {
             console.log(userDate);
+            // MAIN VARS - GET DATA FROM ONSLELECT FUNCTION
+            var userDate = userDate,
+                userMonth = userDateMonth,
+                userAccommType = userAccommType,
+                userAccommAval = "AVAL", // constant
+                userDateAvalDays = "AVFOR"; // constant
 
-            var userDate = userDate;
-            var userDateTest = "04/15/2017"; //"04/10/2017";
-            var userMonth = "april";
-            var userAccommType = "GP1";
-            var userAccommAval = "AVAL"; // constant
-            var userDateAvalDays = "AVFOR"; // constant
+            // TEST VARS - USE TO TEST GETTING DATA FROM JSON
+            var userDateTest = "04/10/2017", //"04/10/2017";
+                userMonthTest = "april",
+                userAccommTypeTest = "GP1";
+
 
             $.getJSON("js/avaldata.json")
                 .done(function (json) {
@@ -227,19 +246,19 @@ $(window).load(function () {
 
                     var getPod = json.datesArrayMay[0].GP1;
                     var getPodAval = json.datesArrayMay[0];
-                    var isAccomAval = json.datesObj[userMonth][userDateTest][userAccommType][userAccommAval];
-                    //var isAccomAval = json.datesObj[userMonth][userDateTest];
-                    console.log("Is AVAL: " + isAccomAval);
-                    if (true) { // isAccomAval
-                        //$("#daysstay").text(json.datesArrayMay[0].GP1AVFOR);
+
+
+                    var isAccomAval = json.datesObj[userMonthTest][userDateTest][userAccommTypeTest][userAccommAval];
+                
+                    if (isAccomAval) { // isAccomAval
                         //$("#testArea").text(json.datesObj[userMonth][userDateTest][userAccommType]["AVFOR"]);
-                        //$("#testArea").text(json.datesObj[userMonth][userDateTest][userAccommType][userDateAvalDays]);
-                        //$("#testArea").text(json.datesObj[userMonth][userDateTest]);
+                        //$("#testArea").text(json.datesObj[userMonthTest][userDateTest][userAccommTypeTest][userDateAvalDays]);
 
 
 
                         // this function param will take the userDate var from selected value in datepicker
-                        var pod1aval = json.datesArrayMay[0].GP1AVFOR;
+                        //var pod1aval = json.datesArrayMay[0].GP1AVFOR;
+                        var pod1aval = json.datesObj[userMonthTest][userDateTest][userAccommTypeTest][userDateAvalDays];
 
                         outputDays(pod1aval);
                         setSelectedDate(userDate, pod1aval);
@@ -293,18 +312,18 @@ $(window).load(function () {
                     console.log("Post and Get data button clicked");
                     $.ajax({
                         url: 'js/checkAval.php', //This is the current doc
-                        type: "POST"
-                        , dataType: 'json', // add json datatype to get json
+                        type: "POST",
+                        dataType: 'json', // add json datatype to get json
                         data: ({
-                            numDays: testDays
-                            , theDate: testDate
-                        })
-                        , success: function (data) {
+                            numDays: testDays,
+                            theDate: testDate
+                        }),
+                        success: function (data) {
                             console.log(data);
                             //getJSONData(data);
                         }
                     }).fail(function () {
-                        console.log("Error: Your Dreams be Dreams");
+                        console.log("Error: (PHP) Your Dreams be Dreams");
                     });
                     /*$.ajax({
                         url: 'ajax.php', //This is the current doc
@@ -337,20 +356,6 @@ $(window).load(function () {
             sendToServer(userDateStore);
         }
         //serverCheck();
-
-
-
-        ////// INFO FOR NOTES
-        // Init datepicker
-        // beforeDay: add booked day for current pod/pitches
-
-        // on input select
-        // get selectedDate store in var
-        //
-
-        // Check JSON 
-
-        // update number of days aval
 
     } // end bookingApp module 
 
