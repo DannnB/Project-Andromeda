@@ -32,6 +32,17 @@
 */
 
 /* NEW STUFF */
+
+#debugvar {
+    float:left;
+    position: fixed;
+    width: 160px;
+    background: rgb(185, 185, 185);
+}
+#debugvar ul li {
+    list-style: none;
+}
+
 body {
 
 }

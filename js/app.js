@@ -26,29 +26,28 @@ $(window).load(function () {
             setView = $(".panels");
         setView.hide(); // default booking panels hidden
         // Store all panels in dom cache (faster)
-        var getpanel1home = $("#panel1home"),
-            getpanel2camp = $("#panel2camp"),
-            getpanel2glamptype = $("#panel2glamptype"),
-            getpanel3glamp = $("#panel3glamp"),
-            getpanel4final = $("#panel4final"),
-            currentPanel = $("#panel1home"); // get id of shown panel
+        var getpanel1home = $("#panel1home")
+            , getpanel2camp = $("#panel2camp")
+            , getpanel2glamptype = $("#panel2glamptype")
+            , getpanel3glamp = $("#panel3glamp")
+            , getpanel4final = $("#panel4final")
+            , currentPanel = $("#panel1home"); // get id of shown panel
 
         // MAIN VARS FOR DATE PICKER
         var userDate = "Please pick a date"; // default
 
         // MAIN FORM DATA FOR PHP SUBMIT - this will get updates as the user progresses through the panels
         // Variables to pass to booking.php
-        var formArrivalDate = "",
-            formNoOfNights = 0,
-            formAdults = 0,
-            formChildren = 0,
-            formDogs = 0,
-            formElectricity = false,
-            // FINAL DETAILS
-            formUsersName = "",
-            formUsersEmail = "",
-            formUsersPhone = "",
-            formUsersTotalAmount = 0;
+        var formArrivalDate = userDate
+            , formNoOfNights = 0
+            , formAdults = 0
+            , formChildren = 0
+            , formDogs = 0
+            , formElectricity = false, // FINAL DETAILS
+            formUsersName = ""
+            , formUsersEmail = ""
+            , formUsersPhone = ""
+            , formUsersTotalAmount = 0;
 
         // DEBUG SETTINGS FOR ALL PANELS - CAN BE USED FOR MASS CHANGES
         var panelDebug = true;
@@ -63,19 +62,19 @@ $(window).load(function () {
 
         // DATEPICKER INIT - MAIN FUNCTIONS GET CALLED HERE WITH USER INTERACTION
         $("#arr_date").datepicker({
-            inline: true,
-            minDate: 5,
-            maxDate: "+5Y",
-            showOtherMonths: true,
-            dateFormat: 'yy-mm-dd',
-            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            onSelect: function (date) {
+            inline: true
+            , minDate: 5
+            , maxDate: "+5Y"
+            , showOtherMonths: true
+            , dateFormat: 'yy-mm-dd'
+            , dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            , onSelect: function (date) {
                 //console.log(date);
                 userDate = date;
                 getDataJSON(userDate);
                 serverCheck(userDate); // add date to check server if still aval
-            },
-            beforeShowDay: function (date) {
+            }
+            , beforeShowDay: function (date) {
                 var array = ["2016-10-14", "2016-10-17", "2016-10-18"];
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                 return [array.indexOf(string) == -1]
@@ -127,12 +126,12 @@ $(window).load(function () {
                 }
             }
         } // DISABLE DATES END
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
 
         function setSelectedDate(getUserDate, getMaxDays) {
             var formatDate = moment(getUserDate).format('DD/MM/YYYY');
@@ -228,16 +227,16 @@ $(window).load(function () {
         function getDataJSON(userDate, userAccommType, userDateMonth) {
             console.log(userDate);
             // MAIN VARS - GET DATA FROM ONSLELECT FUNCTION
-            var userDate = userDate,
-                userMonth = userDateMonth,
-                userAccommType = userAccommType,
-                userAccommAval = "AVAL", // constant
+            var userDate = userDate
+                , userMonth = userDateMonth
+                , userAccommType = userAccommType
+                , userAccommAval = "AVAL", // constant
                 userDateAvalDays = "AVFOR"; // constant
 
             // TEST VARS - USE TO TEST GETTING DATA FROM JSON
             var userDateTest = "04/10/2017", //"04/10/2017";
-                userMonthTest = "april",
-                userAccommTypeTest = "GP1";
+                userMonthTest = "april"
+                , userAccommTypeTest = "GP1";
 
 
             $.getJSON("js/avaldata.json")
@@ -249,7 +248,7 @@ $(window).load(function () {
 
 
                     var isAccomAval = json.datesObj[userMonthTest][userDateTest][userAccommTypeTest][userAccommAval];
-                
+
                     if (isAccomAval) { // isAccomAval
                         //$("#testArea").text(json.datesObj[userMonth][userDateTest][userAccommType]["AVFOR"]);
                         //$("#testArea").text(json.datesObj[userMonthTest][userDateTest][userAccommTypeTest][userDateAvalDays]);
@@ -312,13 +311,13 @@ $(window).load(function () {
                     console.log("Post and Get data button clicked");
                     $.ajax({
                         url: 'js/checkAval.php', //This is the current doc
-                        type: "POST",
-                        dataType: 'json', // add json datatype to get json
+                        type: "POST"
+                        , dataType: 'json', // add json datatype to get json
                         data: ({
-                            numDays: testDays,
-                            theDate: testDate
-                        }),
-                        success: function (data) {
+                            numDays: testDays
+                            , theDate: testDate
+                        })
+                        , success: function (data) {
                             console.log(data);
                             //getJSONData(data);
                         }
@@ -357,7 +356,43 @@ $(window).load(function () {
         }
         //serverCheck();
 
+        // debug floating div
+        
+        $(function () {
+            setInterval(debugFloat, 1000);
+        });
+
+        function debugFloat() {
+            var debugBox = $("#debugvar")
+                , getNightsBox = $("#deNights");
+
+
+            var debugObj = {};
+            debugObj.arr = formArrivalDate;
+            debugObj.nights = formNoOfNights;
+            debugObj.adults = formAdults;
+            debugObj.children = formChildren;
+            debugObj.dogs = formDogs;
+            debugObj.elec = formElectricity;
+            debugObj.userName = formUsersName;
+            debugObj.userEmail = formUsersEmail;
+            debugObj.userPhone = formUsersPhone;
+            debugObj.userTotal = formUsersTotalAmount;
+            
+            function changeDebugBox(obj) {
+                var debugData = obj;
+                $("#deNights").text(debugData.nights +2 )
+                console.log(debugData.nights);
+            };
+            changeDebugBox(debugObj);
+        }
+        $("#testDeAdults").click(function(){
+            formNoOfNights = formNoOfNights + 1;
+        });
+
+
     } // end bookingApp module 
+
 
     // Make it standalone module
     //bookingApp();
