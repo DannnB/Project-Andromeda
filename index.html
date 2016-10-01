@@ -19,25 +19,26 @@
 </head>
 
 <body>
-   <div id="debugvar">
-       <ul>
-           <li>ArrDate: <span id="arrDate"></span></li>
-           <li>Nights: <span id="deNights"></span></li>
-           <li id="testDeAdults">Adults: <span id="deAdults"></span></li>
-           <li>Children: <span id="deChildren"></span></li>
-           <li>Dogs: <span id="deDogs"></span></li>
-           <li>Elec: <span id="deElec"></span></li>
-           <li>Name: <span id="deName"></span></li>
-           <li>Email: <span id="deEmail"></span></li>
-           <li>Phone: <span id="dePhone"></span></li>
-           <li>Total: <span id="deTotalAmmount"></span></li>
-       </ul>
-   </div>
+    <div id="debugvar">
+        <ul>
+            <li>Accomm: <span id="deAccommType"></span></li>
+            <li>ArrDate: <span id="deArrDate"></span></li>
+            <li>Nights: <span id="deNights"></span></li>
+            <li id="testDeAdults">Adults: <span id="deAdults"></span></li>
+            <li>Children: <span id="deChildren"></span></li>
+            <li>Dogs: <span id="deDogs"></span></li>
+            <li>Elec: <span id="deElec"></span></li>
+            <li>Name: <span id="deName"></span></li>
+            <li>Email: <span id="deEmail"></span></li>
+            <li>Phone: <span id="dePhone"></span></li>
+            <li>Total: <span id="deTotalAmmount"></span></li>
+        </ul>
+    </div>
     <div class="wrap">
-       
+
         <!-- HOME -->
         <div id="bookstart">
-        
+
         </div>
         <div id="panel1home" class="panels">
             <div class="row">
@@ -45,14 +46,14 @@
                 <div class="row">
                     <div class="small-12 large-12 columns">
                         <button class="button-col">Camping</button>
-                    </div> 
-                       <div class="small-12 large-12 columns">
+                    </div>
+                    <div class="small-12 large-12 columns">
                         <button class="button-col">Glamping</button>
-                    </div> 
-                       <div class="small-12 large-12 columns">
+                    </div>
+                    <div class="small-12 large-12 columns">
                         <button class="button-col">Event</button>
-                    </div> 
-                        
+                    </div>
+
                 </div>
                 <div class="row">
                     <div class="small-6 large-6 columns">
@@ -70,7 +71,56 @@
                 <h1>Book a Camping Pitch</h1>
                 <div class="row">
                     <div class="small-6 large-6 columns">
-                        FORM HERE
+                        <form>
+                            <h2>Your Pitch Details</h2>
+                            <fieldset>
+                                Adults:
+                                <select name="campadults" id="campAdults">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                Children:
+                                <select name="campchildren" id="campChildren">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                Dogs:
+                                <select name="campchildren" id="campChildren">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                                Electricity hook up:
+                                <input type="radio" name="hook" value="false">No
+                                <input type="radio" name="hook" value="true">Yes
+                                <!--<INPUT TYPE="radio" NAME="hookno" VALUE="false">No
+                                <INPUT TYPE="radio" NAME="hookyes" VALUE="true">Yes
+                                -->
+                            </fieldset>
+                        </form>
                     </div>
                     <div class="small-6 large-6 columns">
                         SUBMIT PLUS INFO HERE
@@ -85,38 +135,38 @@
                 <p>Each pod includes a Electricity Hookup as standard</p>
                 <hr>
                 <div class="row">
-                    <div id="pod4but" class="small-6 large-6 columns podbox">
-                       <h3>Pod 1</h3>
+                    <div id="GP1" class="small-6 large-6 columns podbox">
+                        <h3>Pod 1</h3>
                         <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
                         <p>2 single beds</p>
                     </div>
-                    <div id="pod2but" class="small-6 large-6 columns podbox">
+                    <div id="GP2" class="small-6 large-6 columns podbox">
                         <h3>Pod 2</h3>
                         <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
                         <p>pod info</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="pod3but" class="small-6 large-6 columns podbox">
+                    <div id="GP3" class="small-6 large-6 columns podbox">
                         <h3>Pod 3</h3>
                         <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
                         <p>pod info</p>
                     </div>
-                    <div id="pod4but" class="small-6 large-6 columns podbox">
+                    <div id="GP4" class="small-6 large-6 columns podbox">
                         <h3>Pod 4</h3>
                         <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
                         <p>pod info</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="pod5but" class="small-6 large-6 columns podbox">
+                    <div id="GP5" class="small-6 large-6 columns podbox">
                         <h3>Pod 5</h3>
                         <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
                         <p>pod info</p>
                     </div>
                     <div class="small-6 large-6 columns">
                         <h3>Extra Infomation</h3>
-                        
+
                         <p>About pod stuff</p>
                         <p style="text-align:left;">Pods include:</p>
                         <ul style="text-align:left;">
@@ -146,8 +196,7 @@
                 <input type="text" id='arr_date' name="datepicker1" />
 
                 <div class="small-6 large-6 columns">
-                    <label>Number of Days:</label>
-                    <input type="number" class="num-days" disabled>
+
                 </div>
             </div>
             <h2 id="arr-date-set">Pick A Date</h2>
@@ -157,16 +206,74 @@
                     <div class="day-area">
                     </div>
                 </div>
+                <div id="glampBookingFrom">
+                    <div class="row">
+                        <div class="small-2 large-2 columns">
+                            <label>Num of Days:</label>
+                            <input type="number" class="num-days" disabled>
+                        </div>
+                        <div class="small-2 large-2 columns">
+                            <!--<label>Num of Adults</label>
+                        <select name="adults" id="formAdults">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>-->
+                        </div>
+                        <div class="small-2 large-2 columns">
+
+                        </div>
+                        <div class="small-2 large-2 columns"></div>
+                        <div class="small-2 large-2 columns"></div>
+                        <div class="small-2 large-2 columns"></div>
+                    </div>
+                </div>
+                <div id="preFinalBooking">
+                    <hr>
+                    <button type="submit" name="submit" id="preFinalBookingBtn">Finalise Your Booking</button>
+                </div>
             </div>
+
 
             <ul id="listObj">
 
             </ul>
 
         </div>
-        
-        <!-- POD TYPE -->
-        <div id="panel4final" class="panels">
+        <!-- USER DETAILS -->
+        <div id="panel4details" class="panels">
+            <div class="row">
+                <h1>Please fill out your details below</h1>
+                <div class="row">
+                    <form>
+                        <div class="small-4 large-4 columns">
+                            <fieldset>
+                                First name:
+                                <br>
+                                <input type="text" name="firstname" id="firstname"> Last name:
+                                <br>
+                                <input type="text" name="lastname" id="lastname"> Email:
+                                <br>
+                                <input type="email" name="email" id="email"> 
+                                Phone:
+                                <br>
+                                <input type="text" name="phonenum" id="phoneNum">
+                            </fieldset>
+                        </div>
+                        <div class="small-8 large-8 columns">
+                            <div id="submitBooking">
+                                <!--<button type="submit" name="submit" id="submitBookingBtn">Complete Booking</button>-->
+                                <button name="submitBooking" id="submitBookingBtn">Complete Booking</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL THANK YOU AFTER SUBMIT -->
+        <div id="panel5final" class="panels">
             <div class="row">
                 <h1>Thank you for booking</h1>
                 <div class="row">
@@ -179,14 +286,12 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <div id="console-log"></div>
     <div id="images"></div>
 
-    <script>
-    </script>
     <script src="js/app.js"></script>
 </body>
 

@@ -36,7 +36,7 @@
 #debugvar {
     float:left;
     position: fixed;
-    width: 160px;
+    width: 220px;
     background: rgb(185, 185, 185);
 }
 #debugvar ul li {
@@ -60,7 +60,7 @@ h1 {
 /* BUTTONS */
 
 
-#panel1home button {
+#panel1home button, #submitBookingBtn {
   color: #6496c8;
   background: rgba(0,0,0,0);
   border: solid 5px #9b9d9f;

@@ -30,7 +30,8 @@ $(window).load(function () {
             , getpanel2camp = $("#panel2camp")
             , getpanel2glamptype = $("#panel2glamptype")
             , getpanel3glamp = $("#panel3glamp")
-            , getpanel4final = $("#panel4final")
+            , getpanel4details = $("#panel4details")
+            , getpanel5final = $("#panel5final")
             , currentPanel = $("#panel1home"); // get id of shown panel
 
         // MAIN VARS FOR DATE PICKER
@@ -39,24 +40,26 @@ $(window).load(function () {
         // MAIN FORM DATA FOR PHP SUBMIT - this will get updates as the user progresses through the panels
         // Variables to pass to booking.php
         var formArrivalDate = userDate
+            , formAccommType = "Pick a type"
             , formNoOfNights = 0
             , formAdults = 0
             , formChildren = 0
             , formDogs = 0
             , formElectricity = false, // FINAL DETAILS
-            formUsersName = ""
-            , formUsersEmail = ""
-            , formUsersPhone = ""
+              formUsersName = false
+            , formUsersEmail = false
+            , formUsersPhone = false
             , formUsersTotalAmount = 0;
 
         // DEBUG SETTINGS FOR ALL PANELS - CAN BE USED FOR MASS CHANGES
         var panelDebug = true;
         if (panelDebug) {
-            //getpanel1home.show().addClass("panel-active");
-            //getpanel2camp.show();
-            //getpanel2glamptype.show();
-            //getpanel3glamp.show();
-            //getpanel4final.show();
+            getpanel1home.show().addClass("panel-active");
+            getpanel2camp.show();
+            getpanel2glamptype.show();
+            getpanel3glamp.show();
+            getpanel4details.show();
+            getpanel5final.show();
         }
         getpanel3glamp.show();
 
@@ -134,6 +137,7 @@ $(window).load(function () {
 
 
         function setSelectedDate(getUserDate, getMaxDays) {
+            formArrivalDate = getUserDate;
             var formatDate = moment(getUserDate).format('DD/MM/YYYY');
 
             $("#arr-date-set").text("Arriving on the " + formatDate);
@@ -143,6 +147,8 @@ $(window).load(function () {
 
         function setSelectedNumDays(numDay) {
             $(".num-days").val(numDay);
+            
+            formNoOfNights = numDay;
         }
 
         function getClikedDays() {
@@ -260,6 +266,8 @@ $(window).load(function () {
                         var pod1aval = json.datesObj[userMonthTest][userDateTest][userAccommTypeTest][userDateAvalDays];
 
                         outputDays(pod1aval);
+                        
+                        
                         setSelectedDate(userDate, pod1aval);
                         //$("#your-max-days").after("<h2>"+pod1aval+"</h2>");
                         // set user prompt in input
@@ -357,33 +365,67 @@ $(window).load(function () {
         //serverCheck();
 
         // debug floating div
+        function getClikedPod(podNum) {
+            $(".podbox").click(function () {
+                console.log(event.target.id);
+                var clickedPod = event.target.id;
+                $("#deAccommType").text(clickedPod)
+            });
+        }
+        function outputPods(podNum){
+            getClikedPod(podNum);
+        }
+        
         
         $(function () {
             setInterval(debugFloat, 1000);
         });
 
         function debugFloat() {
+            // all this func can be used as a template for passing vars to PHP with an object, test it it then create the main functions after tests. AJAX = data: debugObj
             var debugBox = $("#debugvar")
                 , getNightsBox = $("#deNights");
-
-
+            
+            // get form data
+            var formValFirstname = $("#firstname").val(),
+                formValLastname = $("#lastname").val(),
+                formValEmail = $("#email").val(),
+                formValPhone = $("#phoneNum").val();
+            
             var debugObj = {};
+            debugObj.accommType = formAccommType;
             debugObj.arr = formArrivalDate;
             debugObj.nights = formNoOfNights;
             debugObj.adults = formAdults;
             debugObj.children = formChildren;
             debugObj.dogs = formDogs;
             debugObj.elec = formElectricity;
-            debugObj.userName = formUsersName;
-            debugObj.userEmail = formUsersEmail;
-            debugObj.userPhone = formUsersPhone;
+            //debugObj.userName = formUsersName;
+            debugObj.userName = formValFirstname + " " + formValLastname;
+            //debugObj.userPhone = formUsersPhone;
+            debugObj.userPhone = formValPhone;
+            //debugObj.userEmail = formUsersEmail;
+            debugObj.userEmail = formValEmail;
             debugObj.userTotal = formUsersTotalAmount;
+            
+            
             
             function changeDebugBox(obj) {
                 var debugData = obj;
-                $("#deNights").text(debugData.nights +2 )
-                console.log(debugData.nights);
+                $("#deAccommType").text(debugData.accommType);
+                $("#deArrDate").text(debugData.arr);
+                $("#deNights").text(debugData.nights)
+                $("#deAdults").text(debugData.adults);
+                $("#deChildren").text(debugData.children);
+                $("#deDogs").text(debugData.dogs);
+                $("#deElec").text(debugData.elec);
+                $("#deName").text(debugData.userName);
+                $("#deEmail").text(debugData.userEmail);
+                $("#dePhone").text(debugData.userPhone);
+                $("#deTotalAmmount").text(debugData.userTotal);
+                            
             };
+            
             changeDebugBox(debugObj);
         }
         $("#testDeAdults").click(function(){
