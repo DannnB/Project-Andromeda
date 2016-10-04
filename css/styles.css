@@ -1,11 +1,16 @@
 .console-line {
-  font-family: monospace;
-  margin: 2px;
-  width: 100%;
+    font-family: monospace;
+    margin: 2px;
+    width: 100%;
 }
-*, *:before, *:after {
-  box-sizing: border-box;
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
+
+
 /*.makeItPretty {
   float: left;
 }
@@ -31,87 +36,89 @@
 }
 */
 
+
 /* NEW STUFF */
 
 #debugvar {
-    float:left;
+    float: left;
     position: fixed;
     width: 220px;
     background: rgb(185, 185, 185);
 }
+
 #debugvar ul li {
     list-style: none;
 }
 
-body {
+body {}
 
-}
 h1 {
     text-align: center;
 }
 
 .wrap {
-    max-width:800px;
-    margin:0 auto;
-    display:block;
-    padding:15px;
-    
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    padding: 15px;
 }
+
+
 /* BUTTONS */
 
-
-#panel1home button, #submitBookingBtn {
-  color: #6496c8;
-  background: rgba(0,0,0,0);
-  border: solid 5px #9b9d9f;
-    width:250px;
+#panel1home button,
+#submitBookingBtn {
+    color: #6496c8;
+    background: rgba(0, 0, 0, 0);
+    border: solid 5px #9b9d9f;
+    width: 250px;
     padding: 20px;
     font-size: 2.5em;
     margin: 0 auto;
     display: block;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
+
 #panel1home.border button:hover,
 section.border button.hover {
-  border-color: #346392;
-  color: #346392;
+    border-color: #346392;
+    color: #346392;
 }
+
 section.border button:active,
 section.border button.active {
-  border-color: #27496d;
-  color: #27496d;
+    border-color: #27496d;
+    color: #27496d;
 }
 
 .panel-active {
     border: 10px red solid!important;
 }
+
 .podbox {
-   border: 2px solid #ccc;
+    border: 2px solid #ccc;
 }
+
 .podbox:hover {
-   border: 2px solid red;
+    border: 2px solid red;
 }
+
 .panels {
-    background:#f8f48b;
+    background: #f8f48b;
     border: 10px #ccc solid;
     margin-bottom: 50px;
     text-align: center;
 }
-#panel1home {
-    
-}
-#panel2type {
-    
-}
-#panel3glamp {
-    
-}
-#panel2camp {
-   
-}
-#panel3final {
-    
-}
+
+#panel1home {}
+
+#panel2type {}
+
+#panel3glamp {}
+
+#panel2camp {}
+
+#panel3final {}
 
 .aval-days {
     width: 60px;
@@ -122,32 +129,82 @@ section.border button.active {
     font-size: 3em;
     font-weight: 600;
 }
+
 #arr-date-set {
     text-align: center;
 }
 
 
-
-
 /* DATEPICKER UI OVERIDES */
+
 .highlight {
     border: 2px blue solid;
 }
-#dp .ui-datepicker tbody td.highlight a{
-  background-color: red; 
-  border-bottom: 0px blue solid;}
-  #dp .ui-datepicker tbody td.highlight {
-  background-color: red; }
-  
-  .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+
+#dp .ui-datepicker tbody td.highlight a {
+    background-color: red;
+    border-bottom: 0px blue solid;
+}
+
+#dp .ui-datepicker tbody td.highlight {
+    background-color: red;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
     border: 1px solid #c5dbec;
     background: #dfeffc;
     font-weight: bold;
     color: #000000;
 }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
     border: 1px solid #79b7e7;
     background: #dfeffc;
     font-weight: bold;
     color: #000000;
+}
+
+
+/* MAIN BOOKIG BAR */
+
+.showBar {
+    height: 100%!important;
+}
+
+#mainbookingappbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    height: 50px;
+    background: #ccc;
+    text-align: center;
+}
+
+#booknowbtn {
+    background: #ccc;
+    margin-top: -47px;
+    display: inline-block;
+    border-radius: 15px;
+    height: 38px;
+    width: 200px;
+    font-size: 2em;
+}
+#closebtn {
+    border: 2px #c13737 solid;
+    display: inline;
+    color: #c13737;
+    font-size: 1.6em;
+    padding: 5px;
+    border-radius: 10px;
+}
+.pan2 {
+    /* overflow-y: scroll; */
 }

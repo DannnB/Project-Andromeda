@@ -38,7 +38,6 @@
 
         <!-- HOME -->
         <div id="bookstart">
-
         </div>
         <div id="panel1home" class="panels">
             <div class="row">
@@ -255,8 +254,7 @@
                                 <br>
                                 <input type="text" name="lastname" id="lastname"> Email:
                                 <br>
-                                <input type="email" name="email" id="email"> 
-                                Phone:
+                                <input type="email" name="email" id="email"> Phone:
                                 <br>
                                 <input type="text" name="phonenum" id="phoneNum">
                             </fieldset>
@@ -264,7 +262,7 @@
                         <div class="small-8 large-8 columns">
                             <div id="submitBooking">
                                 <!--<button type="submit" name="submit" id="submitBookingBtn">Complete Booking</button>-->
-                                <button name="submitBooking" id="submitBookingBtn">Complete Booking</button>
+                                <div id="submitBookingBtn">Complete Booking</div>
                             </div>
                         </div>
                     </form>
@@ -291,6 +289,145 @@
 
     <div id="console-log"></div>
     <div id="images"></div>
+
+    <div class="bookingappbar" id="mainbookingappbar">
+        <span id="booknowbtn">BOOK</span>
+
+        <div class="wrap">
+           <span id="closebtn">X</span>
+            <div id="panel1home" class="panels pan1">
+                <div class="row">
+                    <h1>What you booking bruv?</h1>
+                    <div class="row">
+                        <div class="small-12 large-12 columns">
+                            <button class="button-col">Camping</button>
+                        </div>
+                        <div class="small-12 large-12 columns">
+                            <button class="button-col" id="glampingPanBtn">Glamping</button>
+                        </div>
+                        <div class="small-12 large-12 columns">
+                            <button class="button-col">Event</button>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="small-6 large-6 columns">
+                            some info
+                        </div>
+                        <div class="small-6 large-6 columns">
+                            some info
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PICK GLAMPING POD -->
+            
+            <div id="panel2glamptype" class="panels pan2">
+            <div class="row">
+                <h1>Pick Glamping Pod</h1>
+                <p>Each pod includes a Electricity Hookup as standard</p>
+                <hr>
+                <div class="row centered ">
+                    <div id="GP1" class="small-2 large-2 columns podbox">
+                        <h3>Pod 1</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>2 single beds</p>
+                    </div>
+                    <div id="GP2" class="small-2 large-2 columns podbox">
+                        <h3>Pod 2</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                    <div id="GP3" class="small-2 large-2 columns podbox">
+                        <h3>Pod 3</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                    <div id="GP4" class="small-2 large-2 columns podbox">
+                        <h3>Pod 4</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                    <div id="GP5" class="small-2 large-2 columns podbox">
+                        <h3>Pod 5</h3>
+                        <img src="http://www.eastcoastadventure.com/wp-content/uploads/2015/10/glamping.png" width="150px">
+                        <p>pod info</p>
+                    </div>
+                    <div class="row">
+                    <div class="small-12 large-12 columns">
+                        <h3>Extra Infomation</h3>
+
+                        <p>About pod stuff</p>
+                        <p>Pods include:</p>
+                        <ul>
+                            <li>info 1</li>
+                            <li>info 2</li>
+                            <li>info 3</li>
+                        </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+            
+            
+            <!-- glamping pod -->
+            <div id="panel3glamp" class="panels pan3">
+            <div class="row" class="podpanel">
+                <h1 id="testArea"></h1>
+                <h1>Pod 1</h1>
+
+                <div class="small-6 large-6 columns">
+                    <!--<div class="makeItPretty" id="arr_date">-->
+                    <button id="postGetData">Send and Get Data</button>
+                </div>
+                <button disabled id="giveMeData">Click me to get data!</button>
+                <input type="text" id='arr_date' name="datepicker1" />
+
+                <div class="small-6 large-6 columns">
+
+                </div>
+            </div>
+            <h2 id="arr-date-set">Pick A Date</h2>
+            <p id="your-max-days">14 days max</p>
+            <div class="row" class="">
+                <div class="small-12 large-12 columns">
+                    <div class="day-area">
+                    </div>
+                </div>
+                <div id="glampBookingFrom">
+                    <div class="row">
+                        <div class="small-2 large-2 columns">
+                            <label>Num of Days:</label>
+                            <input type="number" class="num-days" disabled>
+                        </div>
+                        <div class="small-2 large-2 columns">
+                            <!--<label>Num of Adults</label>
+                        <select name="adults" id="formAdults">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>-->
+                        </div>
+                        <div class="small-2 large-2 columns">
+
+                        </div>
+                        <div class="small-2 large-2 columns"></div>
+                        <div class="small-2 large-2 columns"></div>
+                        <div class="small-2 large-2 columns"></div>
+                    </div>
+                </div>
+                <div id="preFinalBooking">
+                    <hr>
+                    <button type="submit" name="submit" id="preFinalBookingBtn">Finalise Your Booking</button>
+                </div>
+            </div>
+        </div> <!-- GLAMPING POD -->
+            
+        </div> <!-- WRAP -->
+
+        <!-- END BOOKING BAR -->
+    </div>
 
     <script src="js/app.js"></script>
 </body>
