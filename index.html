@@ -41,7 +41,7 @@
         </div>
         <div id="panel1home" class="panels">
             <div class="row">
-                <h1>What you booking bruv?</h1>
+                <h1>What would you like to book?</h1>
                 <div class="row">
                     <div class="small-12 large-12 columns">
                         <button class="button-col">Camping</button>
@@ -297,7 +297,7 @@
            <span id="closebtn">X</span>
             <div id="panel1home" class="panels pan1">
                 <div class="row">
-                    <h1>What you booking bruv?</h1>
+                    <h1>What would you like to book?</h1>
                     <div class="row">
                         <div class="small-12 large-12 columns">
                             <button class="button-col">Camping</button>
@@ -368,13 +368,14 @@
                 </div>
             </div>
         </div>
+            </div>
             
             
             <!-- glamping pod -->
             <div id="panel3glamp" class="panels pan3">
             <div class="row" class="podpanel">
                 <h1 id="testArea"></h1>
-                <h1>Pod 1</h1>
+                <h1 id="podBoxTitle">Pod 1</h1>
 
                 <div class="small-6 large-6 columns">
                     <!--<div class="makeItPretty" id="arr_date">-->
@@ -423,12 +424,56 @@
                 </div>
             </div>
         </div> <!-- GLAMPING POD -->
+           
+           <!-- USER DETAILS -->
+        <div id="panel4details" class="panels pan4">
+            <div class="row">
+                <h1>Please fill out your details below</h1>
+                <div class="row">
+                    <form>
+                        <div class="small-4 large-4 columns">
+                            <fieldset>
+                                First name:
+                                <br>
+                                <input type="text" name="firstname" id="firstname"> Last name:
+                                <br>
+                                <input type="text" name="lastname" id="lastname"> Email:
+                                <br>
+                                <input type="email" name="email" id="email"> Phone:
+                                <br>
+                                <input type="text" name="phonenum" id="phoneNum">
+                            </fieldset>
+                        </div>
+                        <div class="small-8 large-8 columns">
+                            <div id="submitBooking">
+                                <!--<button type="submit" name="submit" id="submitBookingBtn">Complete Booking</button>-->
+                                <div id="submitBookingBtn">Complete Booking</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+           
+           <!-- FINAL THANK YOU AFTER SUBMIT -->
+        <div id="panel5final" class="panels pan5">
+            <div class="row">
+                <h1>Thank you for booking</h1>
+                <div class="row">
+                    <div class="small-6 large-6 columns">
+                        Read More on our blog
+                    </div>
+                    <div class="small-6 large-6 columns">
+                        Contact us here
+                    </div>
+                </div>
+            </div>
+        </div>
             
         </div> <!-- WRAP -->
 
         <!-- END BOOKING BAR -->
     </div>
-
     <script src="js/app.js"></script>
 </body>
 
