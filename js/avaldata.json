@@ -6,10 +6,12 @@
                 , "CAMPAVFOR": 190
                 , "GP1": {
                     "AVAL": true,
-                    "AVFOR": 14
+                    "AVFOR": 5
                 }
-                , "GP2": true
-                , "GP2AVFOR": 3
+                , "GP2": {
+                    "AVAL": true
+                ,   "AVFOR": 3
+                }
                 , "GP3": false
                 , "GP3AVFOR": 0
                 , "GP4": true
