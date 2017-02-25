@@ -17,7 +17,7 @@ $(window).load(function () {
 
 
     function bookingApp() {
-        // if this dosen't pop up they we broke it somewhere out of this function most likely 
+        // if this dosen't pop up they we broke it somewhere out of this function most likely
         console.log("Booking App func Started, don't let your dreams be dreams!");
         var debugObj = {};
         // MAIN INTERFACE VARS
@@ -115,7 +115,7 @@ $(window).load(function () {
 
         // DISABLE DATES FUNC
         function disableDates() {
-            // beforeShowDay main func that does not work with 
+            // beforeShowDay main func that does not work with
             function disableWithCustomArray() {
                 var array = ["2016-10-14", "2016-10-17", "2016-10-18"];
                 var string = jQuery.datepicker.formatDate('yy-mm-dd', theDate);
@@ -126,14 +126,14 @@ $(window).load(function () {
             //disableWithCustomArray()
             // Needs to check the chose accomm is aval(true) if not then disable dates
             function setUnAvalDates(date) {
-                var dateArray = []; // get this from JSON?? 
+                var dateArray = []; // get this from JSON??
                 /*
                 function getAllUnAvalDates() { // adds to array
                     dateArray.push("2016-10-10", "2016-10-15")
                     console.log(dateArray);
                 }
                 getAllUnAvalDates();*/
-                //var array = ["2016-09-29", "2016-09-26"]; 
+                //var array = ["2016-09-29", "2016-09-26"];
                 /*  function woops(date){
         var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
         return [ dateArray.indexOf(string) == -1 ]
@@ -211,7 +211,7 @@ $(window).load(function () {
 
 
 
-        var accom = "GP1"; // get 
+        var accom = "GP1"; // get
         //// WORK ON THIS LOOP
         function getDateData(json) {
             // loop through JSON to find the date user selected
@@ -405,12 +405,12 @@ $(window).load(function () {
             console.log(passFormData());
             $("#submitBookingBtn").click(function () {
 
-                
+
             })
         }
-        
-        
-        
+
+
+
         //serverCheck();
 
         // debug floating div
@@ -428,7 +428,7 @@ $(window).load(function () {
 
 
         $(function () {
-            setInterval(debugFloat, 1000);
+            //setInterval(debugFloat, 1000);
         });
 
         function debugFloat() {
@@ -485,13 +485,13 @@ $(window).load(function () {
             formNoOfNights = formNoOfNights + 1;
         });
 
-        
 
 
 
 
 
-    } // end bookingApp module 
+
+    } // end bookingApp module
 
 
     // Make it standalone module
